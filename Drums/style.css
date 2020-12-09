@@ -1,0 +1,32 @@
+body{
+			/*background-image: url('bg.jpg');*/
+			background-color: lightblue;
+		}
+		.btn{
+			width: 60px;
+			height: 60px;
+			background-color: white;
+			line-height: 5px;
+			border: 2px solid black;
+			font-weight: bolder;
+			margin: 10px;
+			padding: 10px;
+			display: inline;
+			transition: all 0.08s ;
+		}
+		
+		.playing{
+			border: 5px solid yellow;
+			transform: scale(1.2);
+			color: yellow;
+			font-weight: bolder;
+		}
+
+		.container{
+		
+			width: 40%;/*if width not set margin: auto;wont work */
+			margin: auto;/*horizontally align to center*/
+			text-align: center;
+			margin-top: 20%;
+			opacity: 0.6;
+		}

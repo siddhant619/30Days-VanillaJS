@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.container{
+			display: flex;
+			width: 100%;
+			height: 100vh;
+
+		}
+		h1{
+			/*Text */
+			text-align: center;
+			color: white;
+			margin: 50vh 0 ;
+		}
+		.item{
+			height: 100%;
+			flex: 1;
+			background-position: center;
+			background-size:cover;/*VVI  */ 
+			transition: ease-in 0.7s;
+
+		}
+		.item:nth-of-type(1){
+			flex-grow: 1;
+			background-image: url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); 
+		}
+		.item:nth-of-type(2){
+			flex-grow: 1;
+			background-image: url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); 
+		}
+		.item:nth-of-type(3){
+			flex-grow: 1;
+			background-image: url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); 
+		}
+		.item:nth-of-type(4){
+			flex-grow: 1;
+			background-image: url(https://source.unsplash.com/ITjiVXcwVng/1500x1500);
+		}
+		.item:nth-of-type(5){
+			flex-grow: 1;
+			background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
+		}
+		.active{
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item" id="one"><h1>LET'S</h1></div>
+		<div class="item" id="two"><h1>DO</h1></div>
+		<div class="item" id="three"><h1>IT</h1></div>
+		<div class="item" id="four"><h1>RIGHT</h1></div>
+		<div class="item" id="five"><h1>NOW</h1></div>
+	</div>
+	<script>
+		let active=0;
+		let items=document.querySelectorAll('.item');
+		function fun(){
+			if(this.classList.contains('active')){
+				active--;
+			}
+			else
+				active++;
+			this.classList.toggle('active');
+			changeWidth();
+		}
+		function changeWidth(){
+			let w;
+			if(active==1)
+				 w=5;
+			else if(active==2)
+				 w=4;
+			else if(active==3)
+				 w=3;
+			else if(active==4)
+				 w=2;
+			else if(active==5)
+				w=1;
+
+			for(let item of items){
+				if(item.classList.contains('active')){
+					item.style.flexGrow=w;
+				}
+				else
+					item.style.flexGrow=1;	
+			}
+		}
+		
+		for(let item of items){
+			item.addEventListener('click', fun);
+
+		}
+
+	</script>
+
+</body>
+</html>

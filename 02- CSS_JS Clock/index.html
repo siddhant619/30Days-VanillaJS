@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		body{
+			background: rgb(22,81,156);
+			/*background: linear-gradient(5deg, rgba(22,81,156,1) 13%, rgba(3,139,247,1) 100%);*/
+		}
+		.circle{
+			width: 200px;
+			height: 200px;
+			border: 8px solid white;
+			border-radius: 50%;
+
+			background-clip:border-box;
+			opacity: 1;		
+			position: relative;
+
+		}
+		.hand{
+			position:absolute;
+			width: 3px;
+			margin-left: 100px;
+			background-color: black;
+
+		}
+		#hour{
+			height: 96px;
+			transform-origin: bottom right;
+
+		}
+		#min{
+			/*transform: rotate(-90deg);*/
+			height: 96px;
+			transform-origin: bottom right;
+		}
+		#sec{
+			/*transform: rotate(-90deg);*/
+			height: 96px;
+			transform-origin: bottom right;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="circle">
+		<div class="hand" id="hour">
+			
+		</div>
+		<div class="hand" id="min">
+			
+		</div>
+		<div class="hand" id="sec">
+			
+		</div>
+		
+
+	</div>
+	<script>
+		
+		setInterval(function(){
+			var d=new Date();
+			let h=d.getHours();
+			let m=d.getMinutes();
+			let s=d.getSeconds();
+			console.log(d);
+			//document.getElementById("hour").setAttribute('transform',`rotate(${30*(h%12)}deg)` );
+			document.getElementById("hour").style.transform= `rotate(${30*(h%12)}deg)`;
+			document.getElementById("min").style.transform= `rotate(${6*(m)}deg)`;
+			document.getElementById("sec").style.transform= `rotate(${6*(s)}deg)`;
+
+		},1000)
+		
+	</script>
+	
+</body>
+</html>

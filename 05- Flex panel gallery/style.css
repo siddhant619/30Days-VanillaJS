@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+*{
+	padding: 0;
+	margin: 0;
+	
+}
+.container{
+	display: flex;
+	width: 100%;
+	height: 100vh;
+
+}
+p{
+	/*Text */
+	color: white;
+font-family: 'Langar', cursive;
+
+		font-size: 50px;
+		font-weight: 200;
+
+}
+
+.item{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	flex: 1;
+	background-position: center;
+	background-size:cover;/*VVI  */ 
+	transition: 
+		flex ease-in 0.5s;
+	display: flex;/*Item is itself a flex!!. It flex items will be the 3 para elements  */
+	flex-direction: column;
+
+	justify-content: space-around;
+	align-items: center;
+
+}
+.item:nth-of-type(1){
+	
+	background-image: url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); 
+}
+.item:nth-of-type(2){
+	background-image: url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); 
+}
+.item:nth-of-type(3){
+	background-image: url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); 
+}
+.item:nth-of-type(4){
+	background-image: url(https://source.unsplash.com/ITjiVXcwVng/1500x1500);
+}
+.item:nth-of-type(5){
+	background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
+}
+.item.active{
+	flex-grow: 5;
+}
+.top-bottom{
+
+	font-size: 40px;
+}
+.item > *:first-child{
+	transform: translateY(-200%);
+}	
+.item > *:last-child{
+	transform: translateY(200%);
+}	
+.item.open-active > *:first-child{
+	transform: translateY(0);/*in its original position */
+}	
+.item.open-active > *:last-child{
+	transform: translateY(0);
+}	
+.item > *{
+	transition: transform 0.5s;
+}

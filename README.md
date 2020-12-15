@@ -12,5 +12,7 @@ Day 4- Array cardio 1
 
 Day 5- Flex panel gallery  
 
+Day 6- Type-ahead (using fetch, async and await)
+
 
 

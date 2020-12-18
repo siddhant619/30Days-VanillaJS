@@ -14,7 +14,9 @@ Day 5- Flex panel gallery
 
 Day 6- Type-ahead (using fetch, async and await)  
 
-Day 7- Array cardio 2 (used some,every and find)
+Day 7- Array cardio 2 (used some,every and find)  
+
+Day 8- HTML Canvas mouse drawing
 
 
 

@@ -3,7 +3,7 @@ let input=document.getElementById('city');
 		const data=[];
 		const getData= async function(){
 			const res=await fetch('https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json');
-			//console.log('initial fetch done.. fetching data now..');
+			console.log('initial fetch done.. fetching data now..',res);
 			const d=await res.json();//res.json() also returns a promise!
 			data.push(...d);//use of spread!
 			//text.innerHTML="";

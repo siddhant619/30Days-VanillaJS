@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: 40px;
+            width: 30%;
+            border: 0px solid black;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Hold shift down and click checkbox to check a range</h1>
+    <div class="container">
+        <div class="check">
+            <label>First</label>
+            <input data-number="0" type="checkbox">
+        </div>
+        <div class="check">
+            <label>Second</label>
+            <input data-number="1" type="checkbox">
+        </div>
+        <div class="check">
+            <label>Third</label>
+            <input data-number="2" type="checkbox">
+        </div>
+        <div class="check">
+            <label>Fourth</label>
+            <input data-number="3" type="checkbox">
+        </div>
+        <div class="check">
+            <label>Fifth</label>
+            <input data-number="4" type="checkbox">
+        </div>
+        <div class="check">
+            <label>Sixth</label>
+            <input data-number="5" type="checkbox">
+        </div>
+
+    </div>
+    
+
+<script>
+    let isShiftDown=false;
+    const checkboxes=document.querySelectorAll('input[type=checkbox]');
+    countCheckboxes=(checkboxes.length);
+    function shiftdown(e){
+        if(e.key=="Shift"){
+            //console.log('shift down!');
+            isShiftDown=true;
+
+        }
+    }
+    function shiftup(e){
+        if(e.key=="Shift"){
+            //console.log('shift!');
+            isShiftDown=false;
+
+        }
+    }
+    window.addEventListener('keydown', shiftdown);
+    window.addEventListener('keyup', shiftup);
+    function boxclicked(){
+        console.log('ch');
+        if(isShiftDown==true){
+            console.log('click with shift!!');
+            num= (this.dataset.number);
+            console.log(num);
+            let mx=num;
+            for(let i=num;i<countCheckboxes;i++){
+                if(checkboxes[i].checked==true){
+                    mx=i;
+                }
+            }
+            console.log(mx);
+           /*  for(let i=num;i<=mx;i++){
+                checkboxes[i].checked=true;
+            } */
+
+            let mi=num;
+            for(let i=num;i>=0;i--){
+                if(checkboxes[i].checked==true){
+                    mi=i;
+                }
+            }
+            //console.log(mi);
+            for(let i=mi;i<=mx;i++){
+                checkboxes[i].checked=true;
+            }
+
+        }
+    }
+    for(let checkbox of checkboxes){
+        checkbox.addEventListener('click', boxclicked);
+    }
+
+</script>
+</body>
+</html>

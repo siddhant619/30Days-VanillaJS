@@ -4,17 +4,18 @@ const canvas=document.getElementById('draw');
         //ctx.strokeStyle = "#FF0000";
         canvas.width=window.innerWidth;
         canvas.height=window.innerHeight;
+        //setting initial positions as 0,0
         x_pos=0;
         y_pos=0;
         ctx.lineWidth=1;
-        ctx.lineJoin='round';
-        ctx.lineCap='round';
-        ctx.strokeStyle = "#FF0000";
+        ctx.lineJoin='round';//rounded corner when two lines meet
+        ctx.lineCap='round'; //rounded ends of line
+        ctx.strokeStyle = "#FF0000";//color of line
         hue=0;
         direction=1;
         function mousedown(e){
             isdraw=true;
-            [x_pos,y_pos]=[e.offsetX,e.offsetY]
+            [x_pos,y_pos]=[e.offsetX,e.offsetY]//array destructuring
 
             console.log(e);
         }
@@ -32,15 +33,15 @@ const canvas=document.getElementById('draw');
                 console.log(e.offsetX,e.offsetY);
                 ctx.strokeStyle=`hsl(${hue},100%,50%)`;
                 ctx.stroke();
-                [x_pos,y_pos]=[e.offsetX,e.offsetY]
+                [x_pos,y_pos]=[e.offsetX,e.offsetY]//update curr position
                 /* x_pos=e.offsetX;
                 y_pos=e.offsetY; */
-                if(direction==1){
+                if(direction==1){ //increase line width
                     ctx.lineWidth=(ctx.lineWidth+1);
                     if(ctx.lineWidth>50)
                         direction=0;
                 }
-                else{
+                else{//decrease line width
                     ctx.lineWidth=(ctx.lineWidth-1);
                     if(ctx.lineWidth<10)
                         direction=1;

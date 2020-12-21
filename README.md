@@ -22,4 +22,7 @@ Day 9- Hold shift to check multiple checkboxex
 
 Day 10- Some common dev tools
 
-Day 11- HTML custom video player
+Day 11- HTML custom video player  
+
+Day 12- Key sequence detection  
+

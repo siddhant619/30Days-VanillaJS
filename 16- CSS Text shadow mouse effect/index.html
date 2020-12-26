@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        <style>
+  html {
+    color: black;
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+
+  h1 {
+    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+    font-size: 100px;
+  }
+  </style>
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1 contenteditable>🔥WOAH! ::smile
+             </h1>
+      </div>
+    <script>
+        const h1=document.querySelector('h1');
+        var x = document.querySelector('.hero');
+        x.addEventListener('mousemove',function (e){
+            //console.log(e);
+            let x=e.offsetX;
+            let y=e.offsetY;
+            console.log(this,e.target);
+            if(e.target!=this){  //vvi- try without this if. 
+                x=x+e.target.offsetLeft;
+                y=y+e.target.offsetTop;
+            }
+            xdiff=(x- h1.offsetLeft)*0.1;
+            ydiff=(y- h1.offsetTop)*0.1;
+            console.log(x,y);
+            //h1.style.textShadow=xdiff+"px"+ ydiff+"px 1px #FF0000";
+             h1.style.textShadow=`${xdiff}px ${ydiff}px blue`; 
+        })
+    </script>
+    
+</body>
+</html>

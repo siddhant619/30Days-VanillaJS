@@ -5,77 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
-        <div class="player">
+        
             <video class="player__video viewer" src="video.mp4">
 
             </video>
             <div class="player-controls">
-                <button id="play-pause" class="player-button">&#9658;</button>
-                <input id="track" type="range" min="0" value="0">
-                <label for="volume">Volume</label>
-                <input id="volume" type="range" min="0" max="10">
-                <button class="player-button"id="back" >10 &laquo;</button>
-                <button class="player-button"id="forward" >20 &raquo;</button>
+                <div class="progress">
+                    <div class="progress__filled"></div>
+                </div>
+                <!-- <div class="progress">
+                    <input id="track" type="range" min="0" value="0">
+                </div> -->
+                <div class="flex">
+                    <div class="left-controls">
+                        <button id="play-pause" class="player-button">&#9658;</button>
+                        <button class="player-button"id="back" >10 &laquo;</button>
+                        <div id="time"></div>
+                        <button class="player-button"id="forward" >20 &raquo;</button>
+                        
+                        <i class="fas fa-volume-up" ></i>
+                        <input id="volume" type="range" min="0" max="10">
+                    </div>
+                    
+                </div>
             </div>
             
         </div>
-    </div>
-    <script>
-        const video=document.querySelector('video');
-        const playButton=document.querySelector('button');
-        const track=document.getElementById('track');
-        const volume=document.getElementById('volume');
-        const backButton=document.getElementById('back');
-        const forwardButton=document.getElementById('forward');
-        let isPlaying=false;
-        let length;
-        function runafterload(){
-            length=video.duration;//if we run this before even metadata is loaded then length gives NaN!
-            document.getElementById('track').max=length;
-            document.getElementById('volume').value=video.volume;
-            console.log(volume.value);
-        }
-        //Resource- https://www.w3schools.com/tags/av_event_loadeddata.asp
-        video.addEventListener('loadedmetadata', runafterload);
-        
-        playButton.addEventListener('click',function(){
-            console.log('vid clicked!');
-            if(isPlaying==false){
-                playButton.innerHTML="&#10074;&#10074;";
-                video.play();
-            }
-            else{
-                playButton.innerHTML="&#9658;";
-                video.pause();
-            }
-            isPlaying=!isPlaying;
-        }) 
-        video.addEventListener('timeupdate',function(){
-           // console.log(video.currentTime);
-            document.getElementById('track').value=video.currentTime;
-
-        })
-        video.addEventListener('ended',function(){
-
-            isPlaying=false;
-        })
-        track.addEventListener('input',function(){
-            video.currentTime=document.getElementById('track').value;
-        })
-        volume.addEventListener('input',function(){
-            video.volume=(document.getElementById('volume').value)/10;
-            console.log(video.volume);
-        })
-        backButton.addEventListener('click',function(){
-            video.currentTime=Math.max(0,video.currentTime-10);
-        })
-        forwardButton.addEventListener('click',function(){
-            video.currentTime=Math.min(length,video.currentTime+20);
-        })
-    </script>
+    
+    
+    <script src="script.js"></script>
     
 </body>
 </html>

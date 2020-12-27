@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sort Without Articles</title>
+</head>
+<body>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("https://source.unsplash.com/nDqA4d5NL0k/2000x2000");
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #bands {
+      list-style: inside square;
+      font-size: 20px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    #bands li {
+      border-bottom: 1px solid #efefef;
+      padding: 20px;
+    }
+    
+    #bands li:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      color: #ffc600;
+      text-decoration: none;
+    }
+
+  </style>
+
+  <ul id="bands"></ul>
+
+<script>
+    const bands = ['the Plot in You', 'The Devil Wears Prada', 'Pierce the Veil',
+    'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts',
+    'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+    const arr=[];
+    for(let [i,s] of bands.entries()) {
+        item={};
+        /* if(s.slice(0,4).toLowerCase()==="the "){
+            item.str= s.slice(4);
+        }
+        else if(s.slice(0,2).toLowerCase()==="a "){
+            item.str= s.slice(2);
+        }
+        else if(s.slice(0,3).toLowerCase()==="an "){
+            item.str= s.slice(3);
+        }
+        else
+            item.str= s; */
+        s=s.replace(/the |a |an /i,"");
+        //console.log(s)
+        console.log(s);
+        item.str=s;
+        item.index=i;
+        arr.push(item);
+
+    } ;
+    arr.sort(function(a,b){
+        if(a.str<b.str) return -1;
+        else if(a.str===b.str) return 0;
+        else return 1;
+    });
+    //console.log(arr);
+    const ul=document.getElementById('bands');
+    arr.forEach( (item)=>{
+        const li=document.createElement('li');
+        li.innerHTML=bands[item.index];
+        ul.appendChild(li);
+
+    } )
+
+</script>
+
+</body>
+</html>

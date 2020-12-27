@@ -31,7 +31,7 @@
 </head>
 <body>
     <div class="hero">
-        <h1 contenteditable>🔥WOAH! ::smile
+        <h1 contenteditable>🔥WOAH! 
              </h1>
       </div>
     <script>
@@ -39,9 +39,10 @@
         var x = document.querySelector('.hero');
         x.addEventListener('mousemove',function (e){
             //console.log(e);
-            let x=e.offsetX;
+            let x=e.offsetX;//here e.offsetX gives  x-coordinate of the mouse pointer, relative!! to the target element.
             let y=e.offsetY;
-            console.log(this,e.target);
+            console.log(this,e.target);//
+            //this is the class hero. But when e.target changes to h1 the e.offsetX changes abrubty(goes to small value) coz offset is relative to target element!
             if(e.target!=this){  //vvi- try without this if. 
                 x=x+e.target.offsetLeft;
                 y=y+e.target.offsetTop;

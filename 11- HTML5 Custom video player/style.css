@@ -41,6 +41,16 @@ body{
   display: inline-flex;
   gap:10px;
   justify-content: flex-start;
+  align-items: center;
+}
+.control-subgroup{
+  display:flex;
+  justify-content: space-evenly;
+  gap:6px;
+  margin:0 7px;
+  padding:2px;
+  border:0px solid black;
+  align-items: center;
 }
 #volume{
   /* display: none; */
